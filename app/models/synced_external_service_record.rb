@@ -1,0 +1,2 @@
+class SyncedExternalServiceRecord < ApplicationRecord
+end
