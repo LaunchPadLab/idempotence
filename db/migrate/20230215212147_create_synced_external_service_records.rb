@@ -6,6 +6,8 @@ class CreateSyncedExternalServiceRecords < ActiveRecord::Migration[7.0]
       t.datetime :synced_at
 
       t.timestamps
+
+      t.index :external_service_id, unique: true
     end
   end
 end
