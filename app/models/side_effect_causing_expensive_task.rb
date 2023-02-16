@@ -1,5 +1,4 @@
 class SideEffectCausingExpensiveTask < ApplicationRecord
-
   def do_something_expensive
     update(started_at: Time.current)
     sleep 15
