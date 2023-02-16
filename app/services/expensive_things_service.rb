@@ -3,10 +3,10 @@ class ExpensiveThingsService
     begin
       ActiveRecord::Base.transaction do
         task = SideEffectCausingExpensiveTask.lock("FOR UPDATE NOWAIT").find(task_id)
-        task.do_expensive_things_with_a_row_lock
+        task.do_something_expensive
       end
     rescue ActiveRecord::LockWaitTimeout
-      nil
+      "unable to obtain a row lock"
     end
   end
 end
