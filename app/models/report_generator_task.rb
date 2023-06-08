@@ -14,5 +14,6 @@ class ReportGeneratorTask < ApplicationRecord
 
   def reset
     update(generation_started_at: nil, generation_finished_at: nil)
+    self
   end
 end
