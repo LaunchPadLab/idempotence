@@ -1,10 +1,10 @@
-class ExpensiveTaskService
+class RowLockingService
 
-  # ExpensiveTaskService.call(1)
+  # RowLockingService.call(1)
   def self.call(task_id)
     begin
       ActiveRecord::Base.transaction do
-        task = SideEffectCausingExpensiveTask.lock("FOR UPDATE NOWAIT").find(task_id)
+        task = ReportGeneratorTask.lock("FOR UPDATE NOWAIT").find(task_id)
 
         # return task if task.started_at
 
